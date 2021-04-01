@@ -32,7 +32,7 @@ public class PopWindow extends AppCompatActivity {
 
         //getWindow().getDecorView().setBackgroundColor(Color.parseColor("#BFBFBF"));
 
-        // Reprends les coordonnées passés dans en paramètre lorsque l'intent a été créé
+        // Récupère les coordonnées passés en paramètre lorsque l'Intent a été créé
         String coordinates = "";
         Intent popWindow = getIntent();
         coordinates = popWindow.getStringExtra("coordinate");

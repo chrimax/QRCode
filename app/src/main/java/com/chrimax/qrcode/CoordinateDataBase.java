@@ -35,6 +35,11 @@ public class CoordinateDataBase extends SQLiteOpenHelper  {
 
     }
 
+    /**
+     * Ajoute dans la base de données les coordonnées
+     * @param latitude  Latitude a ajouté dans la DB
+     * @param longitude Longitude a ajouté dans la DB
+     */
     public void addCoordinate(double latitude, double longitude) {
         String strSql ="INSERT INTO coordinate (latitude, longitude) values (" + latitude + ", " + longitude + ")";
         this.getWritableDatabase().execSQL(strSql);

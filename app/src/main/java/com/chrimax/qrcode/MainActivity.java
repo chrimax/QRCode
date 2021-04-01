@@ -232,7 +232,6 @@ public class MainActivity extends AppCompatActivity {
                 loadLocation();
 
                 if (location != null) {
-
                     isLocationNull = false;
 
                     latitude = location.getLatitude();
@@ -282,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Affiche un message d'alerte pour activer la localisation dans les paramètres
+     * Affiche un message d'alerte pour activer la localisation dans les paramètres du smartphone
      */
     public void enableGPS() {
 
