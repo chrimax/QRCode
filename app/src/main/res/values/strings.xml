@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">QRCode</string>
+
+    <string name="camera_refused">La premission de la caméra a été refusée</string>
+    <string name="location_refused">La localisation "n'"est pas activée</string>
+
+    <string name="location_dialog_text">LE GPS doit être activé pour scanner le QR Code.</string>
+    <string name="location_dialog_bt_positive">Activer</string>
+    <string name="location_dialog_bt_negative">Ne pas activer</string>
+    <string name="location_toast_load_location">Une erreur "s'"est produite. Patientez quelques secondes avant de rescanner le QR Code.</string>
+    <string name="location_scanQrCode_success">Le QR Code a bien été scanné !</string>
+</resources>
