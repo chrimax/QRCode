@@ -208,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                         isGPSActived = isGPSActived();
 
                         if (isGPSActived) {
-                            Log.v("GPSActived", "Voici l'état du isActivatedGPS" + isGPSActived);
                             getLocationSmartphone();
                         } else {
                             enableGPS();
