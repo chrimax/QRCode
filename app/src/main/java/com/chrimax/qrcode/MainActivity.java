@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isCameraActived = false;
     private boolean isGPSActived = false;
-    private boolean isLocationNull = true;
+    private boolean isCoordinatesNull = true;
 
     private static final int PERMISSION_REQUEST_CAMERA = 0;
     private static final int PERMISSION_REQUEST_LOCATION = 1;
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             BT_send_coordinate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!isLocationNull) {
+                    if (!isCoordinatesNull) {
                         // Ajoute dans la base de données les coordonnées de l'emplacement actuel.
                         SQLiteDatabase db = helper.getWritableDatabase();
 
@@ -121,8 +121,16 @@ public class MainActivity extends AppCompatActivity {
                         Intent popWindow = new Intent(MainActivity.this, PopWindow.class);
                         popWindow.putExtra("coordinate", coordinates);
                         startActivity(popWindow);
-                    }
 
+                        // Affecte true pour qu'on ne puisse pas renvoyer les mêmes coordonnées sans les avoirs scannées
+                        isCoordinatesNull = true;
+
+                        TV_textQRCode.setText(R.string.scan_QRCode);
+
+                    } else {
+                        // Affiche un message lorsque les coordonnées sont envoyées alors qu'elles sont vides
+                        Toast.makeText(MainActivity.this, R.string.coordinate_null_toast, Toast.LENGTH_SHORT).show();
+                }
                 }
             });
         }
@@ -232,19 +240,19 @@ public class MainActivity extends AppCompatActivity {
                 loadLocation();
 
                 if (location != null) {
-                    isLocationNull = false;
 
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
+                    isCoordinatesNull = false;
 
                     TV_textQRCode.setText("Latitude : " + latitude + " Longitude : " + longitude);
                     Toast.makeText(MainActivity.this, R.string.location_scanQrCode_success, Toast.LENGTH_SHORT).show();
 
                     stopLocation();
                 } else {
-                    isLocationNull = true;
+                    isCoordinatesNull = true;
 
-                    Toast.makeText(MainActivity.this, R.string.location_toast_load_location, Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, R.string.toast_load_location, Toast.LENGTH_LONG).show();
                 }
 
             }

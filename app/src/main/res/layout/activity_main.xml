@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:text="Scann something"
+        android:text="@string/scan_QRCode"
         android:textSize="20dp"
         android:gravity="center"/>
 
